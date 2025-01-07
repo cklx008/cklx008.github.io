@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombbar官方福利号密码创建</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+        }
+        .nav-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav-link a {
+            color: #666;
+            text-decoration: none;
+        }
+        .nav-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bombbar官方福利号密码创建</h1>
+    
+    <div class="container">
+        <div class="tool">
+            <input type="text" id="dec-input" placeholder="请输入十进制数字">
+            <button onclick="decToHex()">转换为16进制</button>
+            <button onclick="clearDec()">清空</button>
+            <div class="result" id="hex-result"></div>
+        </div>
+    </div>
+
+    <div class="nav-link">
+        <a href="parser.html">→ 转到密码解析工具</a>
+    </div>
+
+    <script>
+        function decToHex() {
+            const input = document.getElementById('dec-input').value;
+            try {
+                const num = parseInt(input);
+                if (isNaN(num)) {
+                    throw new Error('请输入有效的十进制数字');
+                }
+                const result = num.toString(16).toUpperCase();
+                document.getElementById('hex-result').textContent = result;
+            } catch (error) {
+                document.getElementById('hex-result').textContent = error.message;
+            }
+        }
+
+        function clearDec() {
+            document.getElementById('dec-input').value = '';
+            document.getElementById('hex-result').textContent = '';
+        }
+    </script>
+</body>
+</html>
