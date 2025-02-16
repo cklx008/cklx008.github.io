@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平台数据分析报告</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+        }
+        
+        .container {
+            padding: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .chart-container {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .chart-box {
+            width: 100%;
+            height: 350px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-align: center;
+            color: #34495e;
+        }
+        
+        h3 {
+            margin: 0 0 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #7834a8;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stats-card {
+            background: #fff3f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .stats-card h4 {
+            margin-top: 0;
+            color: #d63384;
+            font-size: 15px;
+        }
+        
+        .stats-card.purple {
+            background: #f3f0ff;
+        }
+        
+        .stats-card.purple h4 {
+            color: #6f42c1;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 10px 0;
+        }
+        
+        ul.bullet {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        ul.bullet li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background: #f8f9fa;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
+            
+            body {
+                max-width: 600px;
+                padding: 20px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 天猫平台数据 -->
+        <h2>天猫平台人群分析</h2>
+        <div class="chart-container">
+            <h3>天猫店性别分布</h3>
+            <div id="genderChart" class="chart-box"></div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>天猫店年龄分布</h3>
+            <div id="tmallAgeChart" class="chart-box"></div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>天猫TOP 10省份分布</h3>
+            <div id="tmallProvinceChart" class="chart-box"></div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>会员等级分布</h3>
+            <div id="memberChart" class="chart-box"></div>
+        </div>
+
+        <!-- 小红书平台数据 -->
+        <h2>小红书平台人群分析</h2>
+        <div class="chart-container">
+            <h3>小红书用户年龄分布</h3>
+            <div id="xhsAgeChart" class="chart-box"></div>
+        </div>
+
+        <div class="chart-container">
+            <h3>城市层级分布</h3>
+            <div id="cityTierChart" class="chart-box"></div>
+        </div>
+
+        <div class="chart-container">
+            <h3>消费水平分布</h3>
+            <div id="consumptionChart" class="chart-box"></div>
+        </div>
+
+        <div class="chart-container">
+            <h3>用户群体细分</h3>
+            <div id="userGroupChart" class="chart-box"></div>
+        </div>
+
+        <div class="chart-container">
+            <h3>小红书TOP 10省份分布</h3>
+            <div id="xhsProvinceChart" class="chart-box"></div>
+        </div>
+
+        <!-- 复购分析部分 -->
+
+        <div class="card">
+            <h2>天猫平台复购分析</h2>
+            
+            <h3>复购核心指标</h3>
+            <div class="stats-card">
+                <h4>复购客户数据</h4>
+                <ul>
+                    <li>已购客户回访人数：893人</li>
+                    <li>老客复购人数：299人</li>
+                    <li>复购金额：¥92,959.71</li>
+                    <li>复购客单价：¥310.90</li>
+                </ul>
+            </div>
+            
+            <div class="stats-card purple">
+                <h4>复购周期特征</h4>
+                <ul>
+                    <li>客单价：¥565</li>
+                    <li>人均购买次数：3.2次</li>
+                    <li>90%用户再次购买需要46天</li>
+                    <li>60%用户再次购买需要15天</li>
+                </ul>
+            </div>
+
+            <div class="chart">
+                <h3>复购指标分析</h3>
+                <table>
+                    <tr>
+                        <th>指标</th>
+                        <th>比例</th>
+                    </tr>
+                    <tr>
+                        <td>召回率</td>
+                        <td>33.25%</td>
+                    </tr>
+                    <tr>
+                        <td>回访转化率</td>
+                        <td>33.48%</td>
+                    </tr>
+                    <tr>
+                        <td>复购比例</td>
+                        <td>11.13%</td>
+                    </tr>
+                    <tr>
+                        <td>复购订单占比</td>
+                        <td>38.20%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 天猫数据
+        const genderData = [
+            { name: '女性', value: 82.77 },
+            { name: '男性', value: 15.97 },
+            { name: '未知', value: 1.26 }
+        ];
+
+        const tmallAgeData = [
+            { name: '18-24岁', value: 25.00 },
+            { name: '25-29岁', value: 23.08 },
+            { name: '30-34岁', value: 15.17 },
+            { name: '35-39岁', value: 8.12 },
+            { name: '40-49岁', value: 10.90 },
+            { name: '50岁及以上', value: 10.04 },
+            { name: '未知', value: 7.69 }
+        ];
+
+        const tmallProvinceData = [
+            { name: '上海', value: 16.78 },
+            { name: '广东省', value: 14.13 },
+            { name: '北京', value: 12.36 },
+            { name: '浙江省', value: 9.49 },
+            { name: '江苏省', value: 9.27 },
+            { name: '湖北省', value: 4.42 },
+            { name: '安徽省', value: 3.75 },
+            { name: '山东省', value: 3.31 },
+            { name: '四川省', value: 2.87 },
+            { name: '辽宁省', value: 1.99 }
+        ];
+
+        const memberData = [
+            { name: '第一层级', value: 13.51 },
+            { name: '第二层级', value: 49.90 },
+            { name: '第三层级', value: 21.83 },
+            { name: '第四层级', value: 8.32 },
+            { name: '其他', value: 6.44 }
+        ];
+
+        // 小红书数据
+        const XhsAgeData = [
+            { name: '19-22岁', value: 28.00 },
+            { name: '26-30岁', value: 20.24 },
+            { name: '23-25岁', value: 19.89 },
+            { name: '31-35岁', value: 11.04 },
+            { name: '16-18岁', value: 7.99 },
+            { name: '36-40岁', value: 5.68 },
+            { name: '41-50岁', value: 3.83 },
+            { name: '51岁以上', value: 1.75 },
+            { name: '13-15岁', value: 1.36 },
+            { name: '12岁以下', value: 0.22 }
+        ];
+
+        const CityTierData = [
+            { name: '新一线城市', value: 25.57 },
+            { name: '一线城市', value: 24.70 },
+            { name: '二线城市', value: 17.87 },
+            { name: '三线城市', value: 12.80 },
+            { name: '四线城市', value: 8.26 },
+            { name: '五线城市', value: 4.20 }
+        ];
+
+        const ConsumptionData = [
+            { name: '中消费', value: 66.30 },
+            { name: '高消费', value: 29.13 },
+            { name: '低消费', value: 4.57 }
+        ];
+
+        const UserGroupData = [
+            { name: '女大学生', value: 26.50 },
+            { name: '都市打工人', value: 24.50 },
+            { name: '家庭主妇', value: 12.80 },
+            { name: '未来之星', value: 9.50 },
+            { name: '城镇青年', value: 9.50 },
+            { name: '年轻精英', value: 7.65 },
+            { name: '中产男士', value: 5.40 },
+            { name: '银发一族', value: 2.50 }
+        ];
+
+        const XhsProvinceData = [
+            { name: '广东省', value: 11.52 },
+            { name: '上海市', value: 9.74 },
+            { name: '江苏省', value: 9.12 },
+            { name: '浙江省', value: 8.40 },
+            { name: '北京市', value: 8.19 },
+            { name: '山东省', value: 5.27 },
+            { name: '四川省', value: 4.05 },
+            { name: '福建省', value: 3.16 },
+            { name: '河南省', value: 3.07 },
+            { name: '辽宁省', value: 2.97 }
+        ];
+        // 初始化所有图表
+        const charts = {
+            genderChart: echarts.init(document.getElementById('genderChart')),
+            tmallAgeChart: echarts.init(document.getElementById('tmallAgeChart')),
+            tmallProvinceChart: echarts.init(document.getElementById('tmallProvinceChart')),
+            memberChart: echarts.init(document.getElementById('memberChart')),
+            xhsAgeChart: echarts.init(document.getElementById('xhsAgeChart')),
+            cityTierChart: echarts.init(document.getElementById('cityTierChart')),
+            consumptionChart: echarts.init(document.getElementById('consumptionChart')),
+            userGroupChart: echarts.init(document.getElementById('userGroupChart')),
+            xhsProvinceChart: echarts.init(document.getElementById('xhsProvinceChart'))
+        };
+
+        // 设置图表配置
+        // 天猫性别分布饼图
+        charts.genderChart.setOption({
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c}%'
+            },
+            legend: {
+                orient: 'horizontal',
+                bottom: 'bottom'
+            },
+            series: [{
+                type: 'pie',
+                radius: '50%',
+                data: genderData,
+                label: {
+                    formatter: '{b}: {c}%'
+                }
+            }]
+        });
+
+        // 天猫年龄分布柱状图
+        charts.tmallAgeChart.setOption({
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{b}: {c}%'
+            },
+            xAxis: {
+                type: 'category',
+                data: tmallAgeData.map(item => item.name),
+                axisLabel: {
+                    rotate: 45
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}%'
+                }
+            },
+            series: [{
+                data: tmallAgeData.map(item => item.value),
+                type: 'bar'
+            }]
+        });
+
+        // 天猫省份分布柱状图
+        charts.tmallProvinceChart.setOption({
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{b}: {c}%'
+            },
+            xAxis: {
+                type: 'category',
+                data: tmallProvinceData.map(item => item.name)
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}%'
+                }
+            },
+            series: [{
+                data: tmallProvinceData.map(item => item.value),
+                type: 'bar'
+            }]
+        });
+
+        // 会员等级分布饼图
+        charts.memberChart.setOption({
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c}%'
+            },
+            legend: {
+                orient: 'horizontal',
+                bottom: 'bottom'
+            },
+            series: [{
+                type: 'pie',
+                radius: '50%',
+                data: memberData,
+                label: {
+                    formatter: '{b}: {c}%'
+                }
+            }]
+        });
+
+        // 小红书年龄分布柱状图
+        charts.xhsAgeChart.setOption({
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{b}: {c}%'
+            },
+            xAxis: {
+                type: 'category',
+                data: XhsAgeData.map(item => item.name),
+                axisLabel: {
+                    rotate: 45
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}%'
+                }
+            },
+            series: [{
+                data: XhsAgeData.map(item => item.value),
+                type: 'bar',
+                itemStyle: {
+                    color: '#FF69B4'
+                }
+            }]
+        });
+
+        // 城市层级分布饼图
+        charts.cityTierChart.setOption({
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c}%'
+            },
+            legend: {
+                orient: 'horizontal',
+                bottom: 'bottom'
+            },
+            series: [{
+                type: 'pie',
+                radius: '50%',
+                data: CityTierData,
+                label: {
+                    formatter: '{b}: {c}%'
+                }
+            }]
+        });
+
+        // 消费水平分布饼图
+        charts.consumptionChart.setOption({
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}: {c}%'
+            },
+            legend: {
+                orient: 'horizontal',
+                bottom: 'bottom'
+            },
+            series: [{
+                type: 'pie',
+                radius: '50%',
+                data: ConsumptionData,
+                label: {
+                    formatter: '{b}: {c}%'
+                }
+            }]
+        });
+
+        // 用户群体细分柱状图
+        charts.userGroupChart.setOption({
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{b}: {c}%'
+            },
+            xAxis: {
+                type: 'category',
+                data: UserGroupData.map(item => item.name),
+                axisLabel: {
+                    rotate: 45
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}%'
+                }
+            },
+            series: [{
+                data: UserGroupData.map(item => item.value),
+                type: 'bar',
+                itemStyle: {
+                    color: '#FF69B4'
+                }
+            }]
+        });
+
+        // 小红书省份分布柱状图
+        charts.xhsProvinceChart.setOption({
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{b}: {c}%'
+            },
+            xAxis: {
+                type: 'category',
+                data: XhsProvinceData.map(item => item.name)
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}%'
+                }
+            },
+            series: [{
+                data: XhsProvinceData.map(item => item.value),
+                type: 'bar',
+                itemStyle: {
+                    color: '#FF69B4'
+                }
+            }]
+        });
+
+        // 响应式处理
+        window.addEventListener('resize', function() {
+            Object.values(charts).forEach(chart => chart.resize());
+        });
+    </script>
+</body>
+</html>
