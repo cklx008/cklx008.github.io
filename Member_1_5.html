@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOMBBAR会员优惠海报</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", "Montserrat", sans-serif;
+        }
+        
+        body {
+            background: #f8f5f0 url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6b800' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* 添加背景闪光效果 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(230, 184, 0, 0.1), transparent 70%);
+            z-index: -1;
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.3; }
+        }
+        
+        .poster {
+            width: 380px;
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3d259' fill-opacity='0.05'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 20px;
+            padding: 30px 25px;
+            color: #333333;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.15), 
+                0 5px 15px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+                inset 0 0 20px rgba(230, 184, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(230, 184, 0, 0.3);
+            transition: all 0.3s ease-out;
+        }
+        
+        .poster:hover {
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.2), 
+                0 7px 20px rgba(0, 0, 0, 0.12),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 0 30px rgba(230, 184, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* 增强装饰元素 */
+        .decoration {
+            position: absolute;
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.12) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            opacity: 0.8;
+            mix-blend-mode: multiply;
+            animation: float 12s infinite ease-in-out;
+            filter: blur(5px);
+        }
+        
+        .decoration-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.08) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            bottom: -80px;
+            left: -80px;
+            opacity: 0.7;
+            mix-blend-mode: multiply;
+            animation: float 15s infinite ease-in-out reverse;
+            filter: blur(4px);
+        }
+        
+        .decoration-3 {
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.15) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            top: 40%;
+            right: 20px;
+            animation: pulse 8s infinite alternate;
+            filter: blur(2px);
+        }
+        
+        /* 添加新的装饰元素 */
+        .decoration-4 {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.07) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            bottom: 30%;
+            left: 10%;
+            animation: float 10s infinite ease-in-out;
+            filter: blur(3px);
+        }
+        
+        .decoration-5 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.2) 0%, rgba(230, 184, 0, 0) 70%);
+            top: 30%;
+            left: 15%;
+            animation: pulse 7s infinite alternate;
+            filter: blur(1px);
+        }
+        
+        /* 添加点缀装饰 */
+        .dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle, rgba(230, 184, 0, 0.15) 1px, transparent 1px),
+                radial-gradient(circle, rgba(230, 184, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px, 40px 40px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-5px) translateX(5px); }
+            50% { transform: translateY(7px) translateX(-5px); }
+            75% { transform: translateY(-3px) translateX(-7px); }
+        }
+        
+        /* 品牌标志增强 */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 1.5px;
+            color: #111;
+            position: relative;
+            padding-left: 10px;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .logo-text::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 22px;
+            background: linear-gradient(to bottom, #e6b800, #f3d259);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3);
+        }
+        
+        .vip-badge {
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            color: #111;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vip-badge::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; top: -50%; }
+            100% { left: 150%; top: 150%; }
+        }
+        
+        .main-title {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+            color: #111111;
+            letter-spacing: -0.5px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            color: #111111;
+            padding: 3px 10px;
+            margin: 0 2px;
+            border-radius: 8px;
+            font-weight: 800;
+            display: inline-block;
+            transform: rotate(-2deg);
+            box-shadow: 
+                3px 3px 0 rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .main-title:hover .highlight {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 
+                4px 4px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        .highlight::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 8px;
+            z-index: -1;
+        }
+        
+        .highlight::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(1px);
+        }
+        
+        .sub-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-weight: 500;
+            color: #444444;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+            letter-spacing: 0.2px;
+        }
+        
+        .level-section {
+            position: relative;
+            z-index: 2;
+            margin: 25px 0;
+        }
+        
+        .level-title {
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        
+        .level-title::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 2px 3px rgba(230, 184, 0, 0.3);
+        }
+        
+        .level-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f2ece2;
+            padding: 18px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 
+                inset 0 2px 5px rgba(0,0,0,0.05),
+                0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.8);
+            overflow: hidden;
+        }
+        
+        .level-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.5), transparent);
+            border-radius: 15px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* 添加纹理效果 */
+        .level-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e6b800' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+        
+        .level {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #222222;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .level:hover {
+            transform: scale(1.25) translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+        
+        /* 优化每个等级的渐变色和效果 */
+        .level-v1 {
+            background: linear-gradient(135deg, #e0e0e0, #ffffff);
+            border: 1px solid #ddd;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.08),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        .level-v2 {
+            background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
+            border: 1px solid #c0c0c0;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        .level-v3 {
+            background: linear-gradient(135deg, #a8a8a8, #d8d8d8);
+            border: 1px solid #a0a0a0;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.12),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        
+        .level-v4 {
+            background: linear-gradient(135deg, #787878, #b8b8b8);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            border: 1px solid #707070;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        .level-v5 {
+            background: linear-gradient(135deg, #d4af37, #f9e076);
+            border: 1px solid #c0a030;
+            color: #111;
+            box-shadow: 
+                0 3px 6px rgba(212, 175, 55, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        
+        .level-v6 {
+            background: linear-gradient(135deg, #b07922, #ffc261);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            border: 1px solid #a06820;
+            box-shadow: 
+                0 3px 10px rgba(176, 121, 34, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        /* 添加更精致的光泽效果 */
+        .level::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .level:hover::after {
+            left: 100%;
+            top: 100%;
+            opacity: 1;
+        }
+        
+        /* 添加边缘高光 */
+        .level::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 70%);
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            margin: 25px 0 12px;
+            position: relative;
+            padding-left: 15px;
+            color: #111111;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+        }
+        
+        .section-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 15px;
+            width: 5px;
+            background: linear-gradient(to bottom, #e6b800, #f3d259);
+            border-radius: 3px;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .coupon-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .coupon {
+            background: linear-gradient(145deg, #1a1a1a, #333333);
+            color: #f8f5f0;
+            border-radius: 12px;
+            width: 65px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 17px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .coupon:hover {
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .coupon.highlight {
+            background: linear-gradient(145deg, #e6b800, #f3d259);
+            color: #111111;
+            transform: scale(1.15);
+            box-shadow: 
+                0 6px 15px rgba(230, 184, 0, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            z-index: 1;
+        }
+        
+        .coupon.highlight:hover {
+            transform: scale(1.2) translateY(-5px) rotateX(10deg);
+            box-shadow: 0 10px 20px rgba(230, 184, 0, 0.5);
+        }
+        
+        .coupon::before {
+            content: "¥";
+            font-size: 12px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        /* 添加纹理效果 */
+        .coupon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+        
+        /* 添加光泽效果 */
+        .coupon-shine {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.7s ease;
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .coupon:hover .coupon-shine {
+            left: 100%;
+            top: 100%;
+            opacity: 1;
+        }
+        
+        .monthly-coupon {
+            background: linear-gradient(145deg, #333333, #555555);
+            color: #f8f5f0;
+        }
+        
+        .monthly-label {
+            font-size: 13px;
+            color: #666;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.3px;
+        }
+        
+        .monthly-label::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(to bottom, #e6b800, #f3d259);
+            border-radius: 50%;
+            margin-right: 8px;
+            opacity: 0.7;
+            box-shadow: 0 1px 2px rgba(230, 184, 0, 0.2);
+        }
+        
+        .tip {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: linear-gradient(145deg, #111111, #222222);
+            color: #f8f5f0;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .tip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            z-index: -1;
+        }
+        
+        .tip::after {
+            content: "→";
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .tip:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* 添加光泽动画 */
+        .tip-shine {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.7s ease
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .tip:hover .tip-shine {
+            left: 100%;
+            top: 100%;
+            opacity: 1;
+        }
+        
+        .bombbar-pattern {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 90px;
+            height: 90px;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 0L20 40M0 20L40 20M10 0L10 40M30 0L30 40M0 10L40 10M0 30L40 30' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+            z-index: 0;
+            animation: fade 8s infinite alternate;
+        }
+        
+        @keyframes fade {
+            0% { opacity: 0.05; }
+            100% { opacity: 0.09; }
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(230, 184, 0, 0.5), transparent);
+            margin: 30px 0;
+            position: relative;
+            opacity: 0.7;
+        }
+        
+        .divider::before {
+            content: "";
+            position: absolute;
+            width: 20%;
+            height: 1px;
+            background: rgba(230, 184, 0, 0.8);
+            left: 40%;
+            top: 0;
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: 0%; width: 0%; opacity: 0; }
+            50% { width: 30%; opacity: 1; }
+            100% { left: 100%; width: 0%; opacity: 0; }
+        }
+        
+        .exclusive-tag {
+            position: absolute;
+            top: 25px;
+            right: -33px;
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            color: #111;
+            transform: rotate(45deg);
+            padding: 6px 40px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 
+                0 2px 5px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            z-index: 10;
+            letter-spacing: 0.5px;
+            border: 1px dashed rgba(0, 0, 0, 0.1);
+            animation: pulse-tag 3s infinite alternate;
+        }
+        
+        @keyframes pulse-tag {
+            0% { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.4); }
+            100% { box-shadow: 0 4px 8px rgba(230, 184, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4); }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- 装饰元素 -->
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="decoration decoration-3"></div>
+        <div class="decoration decoration-4"></div>
+        <div class="decoration decoration-5"></div>
+        <div class="dots"></div>
+        <div class="bombbar-pattern"></div>
+        <div class="exclusive-tag">会员专享</div>
+        
+        <!-- 品牌标志 -->
+        <div class="brand-logo">
+            <div class="logo-text">BOMBBAR</div>
+            <div class="vip-badge">VIP</div>
+        </div>
+        
+        <h1 class="main-title">积分当钱花，最高<span class="highlight">100元无门槛</span>券</h1>
+        <p class="sub-title">每月再领满减券，等级越高解锁福利越多</p>
+        
+        <div class="level-section">
+            <div class="level-title">累计消费金额提升等级</div>
+            <div class="level-container">
+                <div class="level level-v2">V0</div>
+                <div class="level level-v3">V1</div>
+                <div class="level level-v4">V2</div>
+                <div class="level level-v5">V3</div>
+                <div class="level level-v6">V4</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="section-title">无门槛大额券</div>
+        <div class="monthly-label">消费积分直兑</div>
+        <div class="coupon-container">
+            <div class="coupon">
+                20
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon">
+                30
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon">
+                50
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon">
+                80
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon highlight">
+                100
+                <div class="coupon-shine"></div>
+            </div>
+        </div>
+        
+        <div class="section-title">每月会员日领</div>
+        <div class="monthly-label">会员专属满减券</div>
+        <div class="coupon-container">
+            <div class="coupon monthly-coupon">
+                5
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon monthly-coupon">
+                10
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon monthly-coupon">
+                15
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon monthly-coupon">
+                20
+                <div class="coupon-shine"></div>
+            </div>
+            <div class="coupon monthly-coupon">
+                25
+                <div class="coupon-shine"></div>
+            </div>
+        </div>
+        
+        <a href="https://cklx008.github.io/Member%20Page_taobao.html" target="_blank" class="tip" style="display: block; text-decoration: none;">
+            点击进入会员页了解更多
+            <div class="tip-shine"></div>
+        </a>
+    </div>
+</body>
+</html>
