@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOMBBAR会员优惠海报</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", "Montserrat", sans-serif;
+        }
+        
+        body {
+            background: #f8f5f0 url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6b800' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* 添加背景闪光效果 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(230, 184, 0, 0.1), transparent 70%);
+            z-index: -1;
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.3; }
+        }
+        
+        .poster {
+            width: 380px;
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3d259' fill-opacity='0.05'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 20px;
+            padding: 30px 25px;
+            color: #333333;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.15), 
+                0 5px 15px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+                inset 0 0 20px rgba(230, 184, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(230, 184, 0, 0.3);
+            transition: all 0.3s ease-out;
+        }
+        
+        .poster:hover {
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.2), 
+                0 7px 20px rgba(0, 0, 0, 0.12),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 0 30px rgba(230, 184, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        /* 增强装饰元素 */
+        .decoration {
+            position: absolute;
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.12) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            opacity: 0.8;
+            mix-blend-mode: multiply;
+            animation: float 12s infinite ease-in-out;
+            filter: blur(5px);
+        }
+        
+        .decoration-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.08) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            bottom: -80px;
+            left: -80px;
+            opacity: 0.7;
+            mix-blend-mode: multiply;
+            animation: float 15s infinite ease-in-out reverse;
+            filter: blur(4px);
+        }
+        
+        .decoration-3 {
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.15) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            top: 40%;
+            right: 20px;
+            animation: pulse 8s infinite alternate;
+            filter: blur(2px);
+        }
+        
+        /* 添加新的装饰元素 */
+        .decoration-4 {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.07) 0%, rgba(230, 184, 0, 0) 70%);
+            border-radius: 50%;
+            bottom: 30%;
+            left: 10%;
+            animation: float 10s infinite ease-in-out;
+            filter: blur(3px);
+        }
+        
+        .decoration-5 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(230, 184, 0, 0.2) 0%, rgba(230, 184, 0, 0) 70%);
+            top: 30%;
+            left: 15%;
+            animation: pulse 7s infinite alternate;
+            filter: blur(1px);
+        }
+        
+        /* 添加点缀装饰 */
+        .dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle, rgba(230, 184, 0, 0.15) 1px, transparent 1px),
+                radial-gradient(circle, rgba(230, 184, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px, 40px 40px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-5px) translateX(5px); }
+            50% { transform: translateY(7px) translateX(-5px); }
+            75% { transform: translateY(-3px) translateX(-7px); }
+        }
+        
+        /* 品牌标志增强 */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 1.5px;
+            color: #111;
+            position: relative;
+            padding-left: 10px;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .logo-text::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 22px;
+            background: linear-gradient(to bottom, #e6b800, #f3d259);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3);
+        }
+        
+        .vip-badge {
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            color: #111;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vip-badge::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; top: -50%; }
+            100% { left: 150%; top: 150%; }
+        }
+        
+        .main-title {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+            color: #111111;
+            letter-spacing: -0.5px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            color: #111111;
+            padding: 3px 10px;
+            margin: 0 2px;
+            border-radius: 8px;
+            font-weight: 800;
+            display: inline-block;
+            transform: rotate(-2deg);
+            box-shadow: 
+                3px 3px 0 rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .main-title:hover .highlight {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 
+                4px 4px 0 rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        .highlight::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 8px;
+            z-index: -1;
+        }
+        
+        .highlight::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(1px);
+        }
+        
+        .sub-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-weight: 500;
+            color: #444444;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+            letter-spacing: 0.2px;
+        }
+        
+        .level-section {
+            position: relative;
+            z-index: 2;
+            margin: 25px 0;
+        }
+        
+        .level-title {
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        
+        .level-title::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 2px 3px rgba(230, 184, 0, 0.3);
+        }
+        
+        .level-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f2ece2;
+            padding: 18px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 
+                inset 0 2px 5px rgba(0,0,0,0.05),
+                0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.8);
+            overflow: hidden;
+        }
+        
+        .level-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.5), transparent);
+            border-radius: 15px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* 添加纹理效果 */
+        .level-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e6b800' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+        
+        .level {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #222222;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .level:hover {
+            transform: scale(1.25) translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+        
+        /* 优化每个等级的渐变色和效果 */
+        .level-v1 {
+            background: linear-gradient(135deg, #e0e0e0, #ffffff);
+            border: 1px solid #ddd;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.08),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        .level-v2 {
+            background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
+            border: 1px solid #c0c0c0;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        .level-v3 {
+            background: linear-gradient(135deg, #a8a8a8, #d8d8d8);
+            border: 1px solid #a0a0a0;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.12),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        
+        .level-v4 {
+            background: linear-gradient(135deg, #787878, #b8b8b8);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            border: 1px solid #707070;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        .level-v5 {
+            background: linear-gradient(135deg, #d4af37, #f9e076);
+            border: 1px solid #c0a030;
+            color: #111;
+            box-shadow: 
+                0 3px 6px rgba(212, 175, 55, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        
+        .level-v6 {
+            background: linear-gradient(135deg, #b07922, #ffc261);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            border: 1px solid #a06820;
+            box-shadow: 
+                0 3px 10px rgba(176, 121, 34, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        /* 添加更精致的光泽效果 */
+        .level::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .level:hover::after {
+            left: 100%;
+            top: 100%;
+            opacity: 1;
+        }
+        
+        /* 添加边缘高光 */
+        .level::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 70%);
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            margin: 25px 0 12px;
+            position: relative;
+            padding-left: 15px;
+            color: #111111;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+        }
+        
+        .section-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 15px;
+            width: 5px;
+            background: linear-gradient(to bottom, #e6b800, #f3d259);
+            border-radius: 3px;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .coupon-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .coupon {
+            background: linear-gradient(145deg, #1a1a1a, #333333);
+            color: #f8f5f0;
+            border-radius: 12px;
+            width: 65px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 17px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .coupon:hover {
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .coupon.highlight {
+            background: linear-gradient(145deg, #e6b800, #f3d259);
+            color: #111111;
+            transform: scale(1.15);
+            box-shadow: 
+                0 6px 15px rgba(230, 184, 0, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            z-index: 1;
+        }
+        
+        .coupon.highlight:hover {
+            transform: scale(1.2) translateY(-5px) rotateX(10deg);
+            box-shadow: 0 10px 20px rgba(230, 184, 0, 0.5);
+        }
+        
+        .coupon::before {
+            content: "¥";
+            font-size: 12px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        /* 添加纹理效果 */
+        .coupon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+        
+        /* 添加光泽效果 */
+        .coupon-shine {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.7s ease;
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .coupon:hover .coupon-shine {
+            left: 100%;
+            top: 100%;
+            opacity: 1;
+        }
+        
+        .monthly-coupon {
+            background: linear-gradient(145deg, #333333, #555555);
+            color: #f8f5f0;
+        }
+        
+        .monthly-label {
+            font-size: 13px;
+            color: #666;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.3px;
+        }
+        
+        .monthly-label::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(to bottom, #e6b800, #f3d259);
+            border-radius: 50%;
+            margin-right: 8px;
+            opacity: 0.7;
+            box-shadow: 0 1px 2px rgba(230, 184, 0, 0.2);
+        }
+        
+        .tip {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: linear-gradient(145deg, #111111, #222222);
+            color: #f8f5f0;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .tip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .tip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            z-index: -1;
+        }
+        
+        .tip::after {
+            content: "→";
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .tip:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* 添加光泽动画 */
+        .tip-shine {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.7s ease;
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .tip:hover .tip-shine {
+            left: 100%;
+            top: 100%;
+            opacity: 1;
+        }
+        
+        .bombbar-pattern {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 90px;
+            height: 90px;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 0L20 40M0 20L40 20M10 0L10 40M30 0L30 40M0 10L40 10M0 30L40 30' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+            z-index: 0;
+            animation: fade 8s infinite alternate;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 0L20 40M0 20L40 20M10 0L10 40M30 0L30 40M0 10L40 10M0 30L40 30' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+            z-index: 0;
+            animation: fade 8s infinite alternate;
+        }
+        
+        @keyframes fade {
+            0% { opacity: 0.05; }
+            100% { opacity: 0.09; }
+        }
+        
+        /* 会员专享特权部分样式 */
+        .privilege-section {
+            padding-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .privilege-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.08), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+                inset 0 0 20px rgba(230, 184, 0, 0.05);
+            border: 1px solid rgba(230, 184, 0, 0.15);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .privilege-card:hover {
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.12), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 0 30px rgba(230, 184, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .privilege-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3d259' fill-opacity='0.05'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        .privilege-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .privilege-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e6b800, #f3d259);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: #111;
+            box-shadow: 0 3px 6px rgba(230, 184, 0, 0.3);
+        }
+
+        .privilege-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+            flex: 1;
+            letter-spacing: -0.3px;
+        }
+
+        .privilege-desc {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+            padding-left: 48px;
+            line-height: 1.5;
+        }
+
+        /* 表格样式 */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            background: #f8f5f0;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+            padding: 2px;
+        }
+
+        .privilege-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 14px;
+        }
+
+        .privilege-table th {
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            color: #f8f5f0;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privilege-table th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .privilege-table th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .privilege-table th::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .privilege-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .privilege-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .privilege-table tr:hover td {
+            background-color: rgba(230, 184, 0, 0.05);
+        }
+
+        /* 表格中的会员等级标签 */
+        .table-level {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+            display: inline-flex;
+        }
+
+        /* 优惠券表格 */
+        .points-table td {
+            vertical-align: middle;
+            height: 60px;
+        }
+
+        .small-coupon {
+            width: auto;
+            height: auto;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #222;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .points {
+            font-weight: 600;
+            color: #555;
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 10px;
+            background: #f2ece2;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .highlight-points {
+            color: #111;
+            background: linear-gradient(135deg, #f3d259, #e6b800);
+            box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3);
+        }
+
+        /* 积分倍率 */
+        .multiplier {
+            font-weight: 700;
+            color: #333;
+            padding: 4px 8px;
+            border-radius: 10px;
+            background: #f2ece2;
+        }
+
+        .highlight-multiplier {
+            color: #111;
+            background: linear-gradient(135deg, #f3d259, #e6b800);
+            box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3);
+        }
+
+        /* 规则样式 */
+        .rules-container {
+            padding: 10px 0;
+        }
+
+        .rule-item {
+            display: flex;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .rule-number {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            color: #f8f5f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-number::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            border-radius: 50%;
+        }
+
+        .rule-content {
+            flex: 1;
+        }
+
+        .rule-title {
+            font-size: 15px;
+            margin: 0 0 5px;
+            color: #111;
+            font-weight: 700;
+        }
+
+        .rule-desc {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* 提示框样式 */
+        .tip-box {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(230, 184, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .tip-icon {
+            color: #e6b800;
+            margin-right: 10px;
+        }
+
+        .tip-text {
+            font-size: 13px;
+            color: #555;
+            flex: 1;
+        }
+
+        /* 底部提示 */
+        .footer-tip {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background: linear-gradient(145deg, #111111, #222222);
+            color: #f8f5f0;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-tip:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .footer-tip::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- 装饰元素 -->
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="decoration decoration-3"></div>
+        <div class="decoration decoration-4"></div>
+        <div class="decoration decoration-5"></div>
+        <div class="dots"></div>
+        <div class="bombbar-pattern"></div>
+        
+        <!-- 品牌标志和页头 -->
+        <div class="brand-logo">
+            <div class="logo-text">BOMBBAR</div>
+            <div class="vip-badge">VIP</div>
+        </div>
+        
+        <h1 class="main-title">解锁<span class="highlight">6大会员等级</span>专属特权</h1>
+        <p class="sub-title">会员等级越高 · 优惠越多 · 权益更丰富</p>
+  
+ 
+            
+            <!-- 特权一：月度优惠券 -->
+            <div class="privilege-card">
+                <div class="privilege-header">
+                    <div class="privilege-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect><path d="M16 7c0-2.2-1.8-4-4-4s-4 1.8-4 4"></path><path d="M16 17c0 2.2-1.8 4-4 4s-4-1.8-4-4"></path><line x1="12" y1="7" x2="12" y2="17"></line></svg>
+                    </div>
+                    <h3 class="privilege-title">会员特权一：月度优惠券</h3>
+                </div>
+                
+                <p class="privilege-desc">会员每月可领取专属优惠券，会员等级越高，每月能领的越多!</p>
+                
+                <div class="table-container">
+    <style>
+        .privilege-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .privilege-table thead tr {
+            background-color: #333333;
+            color: white;
+        }
+        
+        .privilege-table th {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .privilege-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        /* 等级样式 */
+        .level {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .level-v1 {
+            background: linear-gradient(135deg, #e0e0e0, #ffffff);
+            border: 1px solid #ddd;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.08),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            color: #333; /* 确保文字可见 */
+        }
+        
+        .level-v2 {
+            background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
+            border: 1px solid #c0c0c0;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            color: #333; /* 确保文字可见 */
+        }
+        
+        .level-v3 {
+            background: linear-gradient(135deg, #a8a8a8, #d8d8d8);
+            border: 1px solid #a0a0a0;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.12),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+            color: #333; /* 确保文字可见 */
+        }
+        
+        .level-v4 {
+            background: linear-gradient(135deg, #787878, #b8b8b8);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            border: 1px solid #707070;
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        .level-v5 {
+            background: linear-gradient(135deg, #d4af37, #f9e076);
+            border: 1px solid #c0a030;
+            color: #ffffff;
+            box-shadow: 
+                0 3px 6px rgba(212, 175, 55, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+        
+        .level-v6 {
+            background: linear-gradient(135deg, #b07922, #ffc261);
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+            border: 1px solid #a06820;
+            box-shadow: 
+                0 3px 10px rgba(176, 121, 34, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+        
+        /* 左侧边框标识 - 与对应等级渐变色匹配 */
+        .v1-row {
+            border-left: 3px solid #f0f0f0; /* 使用V1渐变的起始色 */
+        }
+        
+        .v2-row {
+            border-left: 3px solid #e0e0e0; /* 使用V2渐变的起始色 */
+        }
+        
+        .v3-row {
+            border-left: 3px solid #d8d8d8; /* 使用V3渐变的起始色 */
+        }
+        
+        .v4-row {
+            border-left: 3px solid #b8b8b8; /* 使用V4渐变的起始色 */
+        }
+        
+        .v5-row {
+            border-left: 3px solid #f9e076; /* 使用V5渐变的起始色 */
+        }
+        
+        .v6-row {
+            border-left: 3px solid #ffc261; /* 使用V6渐变的起始色 */
+        }
+        
+        /* 面额和门槛样式优化，与整体设计风格保持一致 */
+        .amount {
+            padding: 6px 10px;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            display: inline-block;
+            margin: 2px 0;
+            min-width: 70px;
+            font-weight: bold;
+            color: #333;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .threshold {
+            padding: 5px 8px;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            color: #666;
+            display: inline-block;
+            margin: 2px 0;
+            font-size: 0.95em;
+            border: 1px solid #f0f0f0;
+        }
+    </style>
+    
+    <table class="privilege-table">
+        <thead>
+            <tr>
+                <th>等级</th>
+                <th>面额</th>
+                <th>门槛</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            </tr>
+            <tr class="v2-row">
+                <td><span class="level level-v2">V0</span></td>
+                <td>无</td>
+                <td>无</td>
+            </tr>
+            <tr class="v3-row">
+                <td rowspan="2"><span class="level level-v3">V1</span></td>
+                <td><span class="coupon small-coupon">5</span></td>
+                <td><span class="threshold">满98元</span></td>
+            </tr>
+            <tr class="v3-row">
+            
+            </tr>
+            <tr class="v4-row">
+                <td rowspan="3"><span class="level level-v4">V2</span></td>
+                <td><span class="coupon small-coupon">5</span></td>
+                <td><span class="threshold">满98元</span></td>
+            </tr>
+            <tr class="v4-row">
+                <td><span class="coupon small-coupon">10</span></td>
+                <td><span class="threshold">满198元</span></td>
+            </tr>
+            <tr class="v4-row">
+          
+            </tr>
+            <tr class="v5-row">
+                <td rowspan="4"><span class="level level-v5">V3</span></td>
+                <td><span class="coupon small-coupon">5</span></td>
+                <td><span class="threshold">满98元</span></td>
+            </tr>
+            <tr class="v5-row">
+                <td><span class="coupon small-coupon">10</span></td>
+                <td><span class="threshold">满198元</span></td>
+            </tr>
+            <tr class="v5-row">
+                <td><span class="coupon small-coupon">15</span></td>
+                <td><span class="threshold">满298元</span></td>
+            </tr>
+            <tr class="v5-row">
+            </tr>
+            <tr class="v6-row">
+                <td rowspan="5"><span class="level level-v6">V4</span></td>
+                <td><span class="coupon small-coupon">5</span></td>
+                <td><span class="threshold">满98元</span></td>
+            </tr>
+            <tr class="v6-row">
+                <td><span class="coupon small-coupon">10</span></td>
+                <td><span class="threshold">满198元</span></td>
+            </tr>
+            <tr class="v6-row">
+                <td><span class="coupon small-coupon">15</span></td>
+                <td><span class="threshold">满298元</span></td>
+            </tr>
+            <tr class="v6-row">
+                <td><span class="coupon small-coupon">20</span></td>
+                <td><span class="threshold">满398元</span></td>
+            </tr>
+       
+        </tbody>
+        
+    </table>
+</div>
+
+                
+                
+                
+                <div class="tip-box">
+                    <div class="tip-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </div>
+                    <div class="tip-text">小提示: 优惠券每月18号在会员页面领取，记得按时领取使用哦!</div>
+                </div>
+            </div>
+
+            <!-- 特权二：积分兑0门槛券 -->
+            <div class="privilege-card">
+                <div class="privilege-header">
+                    <div class="privilege-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3 class="privilege-title">会员特权二：积分兑0门槛券</h3>
+                </div>
+                
+                <p class="privilege-desc">消费累积的积分可以兑换，大额0门槛优惠券!</p>
+                
+                <div class="table-container">
+                    <table class="privilege-table points-table">
+                        <thead>
+                            <tr>
+                                <th>面额</th>
+                                <th>所需积分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="coupon small-coupon">10</span></td>
+                                <td><span class="points">700积分</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coupon small-coupon">20</span></td>
+                                <td><span class="points">1400积分</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coupon small-coupon">30</span></td>
+                                <td><span class="points">2100积分</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coupon small-coupon">50</span></td>
+                                <td><span class="points">3500积分</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coupon small-coupon">80</span></td>
+                                <td><span class="points">5500积分</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="coupon small-coupon highlight">¥100</span></td>
+                                <td><span class="points highlight-points">6900积分</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </div>
+                    <div class="tip-text">小提示: 积分兑换的优惠券无消费门槛，随时可兑，随时可用，可能达成0元下单!</div>
+                </div>
+            </div>
+
+            <!-- 会员升级与积分倍率 -->
+            <div class="privilege-card">
+                <div class="privilege-header">
+                    <div class="privilege-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                    </div>
+                    <h3 class="privilege-title">会员升级与积分倍率</h3>
+                </div>
+                
+                <p class="privilege-desc">不同会员等级，积分获取速度大不同!</p>
+                
+                <div class="table-container">
+                    <table class="privilege-table levels-table">
+                        <thead>
+                            <tr>
+                                <th>会员等级</th>
+                                <th>升级条件</th>
+                                <th>积分倍率</th>
+                            </tr>
+                        </thead>
+                      
+                            <tr>
+                                <td><span class="level level-v2 table-level">V0</span></td>
+                                <td>入会既享</td>
+                                <td><span class="multiplier">1倍</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="level level-v3 table-level">V1</span></td>
+                                <td>累计消费满150</td>
+                                <td><span class="multiplier">2倍</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="level level-v4 table-level">V2</span></td>
+                                <td>累计消费满600</td>
+                                <td><span class="multiplier">3倍</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="level level-v5 table-level">V3</span></td>
+                                <td>累计消费满2500</td>
+                                <td><span class="multiplier">4倍</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="level level-v6 table-level">V4</span></td>
+                                <td>累计消费满4500</td>
+                                <td><span class="multiplier highlight-multiplier">5倍</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 积分获取规则 -->
+            <div class="privilege-card">
+                <div class="privilege-header">
+                    <div class="privilege-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                    </div>
+                    <h3 class="privilege-title">积分获取规则</h3>
+                </div>
+                
+                <div class="rules-container">
+                    <div class="rule-item">
+                        <div class="rule-number">1</div>
+                        <div class="rule-content">
+                            <h4 class="rule-title">基础规则</h4>
+                            <p class="rule-desc">消费1元=1基础积分</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">2</div>
+                        <div class="rule-content">
+                            <h4 class="rule-title">会员倍率</h4>
+                            <p class="rule-desc">不同会员等级有不同积分倍率(如V3会员消费1元=3积分)</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">3</div>
+                        <div class="rule-content">
+                            <h4 class="rule-title">积分计算</h4>
+                            <p class="rule-desc">消费金额 × 会员积分倍率 = 获得积分</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-number">4</div>
+                        <div class="rule-content">
+                            <h4 class="rule-title">等级提升</h4>
+                            <p class="rule-desc">系统根据累计消费金额自动升级，升级后立即享受更高积分倍率</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+ 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
