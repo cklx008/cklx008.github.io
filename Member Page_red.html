@@ -392,7 +392,13 @@
         
         /* 优化每个等级的渐变色和效果 */
 
-        
+        .level-v1 {
+         background: linear-gradient(135deg, #e0e0e0, #ffffff);
+         border: 1px solid #ddd;
+         box-shadow: 
+              0 3px 6px rgba(0, 0, 0, 0.08),
+             inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
         .level-v2 {
             background: linear-gradient(135deg, #c8c8c8, #e8e8e8);  
             border: 1px solid #c0c0c0;
@@ -410,14 +416,16 @@
         }
         
         .level-v4 {
-            background: linear-gradient(135deg, #787878, #b8b8b8);
-            color: #ffffff;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-            border: 1px solid #707070;
-            box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.15),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
-        }
+         background: linear-gradient(135deg, #787878, #b8b8b8);
+         color: #ffffff;
+    /* 移除text-shadow */
+    border: 1px solid #707070;
+    box-shadow: 
+        0 3px 6px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+
         
         .level-v5 {
             background: linear-gradient(135deg, #d4af37, #f9e076);
@@ -1033,7 +1041,6 @@
         <div class="dots"></div>
         <div class="bombbar-pattern"></div>
         
-        <!-- 品牌标志和页头 -->
         <div class="brand-logo">
             <div class="logo-text">BOMBBAR</div>
             <div class="vip-badge">VIP</div>
@@ -1042,303 +1049,333 @@
         <h1 class="main-title">解锁<span class="highlight">5大会员等级</span>专属特权</h1>
         <p class="sub-title">会员等级越高 · 优惠越多 · 权益更丰富</p>
   
- 
+        <!-- 特权一：月度优惠券 - 更新满减金额 -->
+        <div class="privilege-card">
+            <div class="privilege-header">
+                <div class="privilege-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect><path d="M16 7c0-2.2-1.8-4-4-4s-4 1.8-4 4"></path><path d="M16 17c0 2.2-1.8 4-4 4s-4-1.8-4-4"></path><line x1="12" y1="7" x2="12" y2="17"></line></svg>
+                </div>
+                <h3 class="privilege-title">会员特权一：月度优惠券</h3>
+            </div>
             
-            <!-- 特权一：月度优惠券 -->
-            <div class="privilege-card">
-                <div class="privilege-header">
-                    <div class="privilege-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect><path d="M16 7c0-2.2-1.8-4-4-4s-4 1.8-4 4"></path><path d="M16 17c0 2.2-1.8 4-4 4s-4-1.8-4-4"></path><line x1="12" y1="7" x2="12" y2="17"></line></svg>
-                    </div>
-                    <h3 class="privilege-title">会员特权一：月度优惠券</h3>
-                </div>
+            <p class="privilege-desc">会员每月可领取专属优惠券，会员等级越高，每月能领的越多!</p>
+            
+            <div class="table-container">
+                <style>
+                    .privilege-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        background-color: #fff;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                    }
+                    
+                    .privilege-table thead tr {
+                        background-color: #333333;
+                        color: white;
+                    }
+                    
+                    .privilege-table th {
+                        padding: 10px;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                    
+                    .privilege-table td {
+                        padding: 10px 8px;
+                        text-align: center;
+                        border-bottom: 1px solid #f0f0f0;
+                    }
+                    
+                    /* 等级样式 */
+                    .level {
+                        display: inline-block;
+                        width: 32px;
+                        height: 32px;
+                        line-height: 32px;
+                        text-align: center;
+                        border-radius: 50%;
+                        color: rgb(6, 6, 6);
+                        font-weight: bold;
+                    }
+                    
+                    .level-v1 {
+                        background: linear-gradient(135deg, #e0e0e0, #ffffff);
+                        border: 1px solid #ddd;
+                        box-shadow: 
+                            0 3px 6px rgba(0, 0, 0, 0.08),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.8);
+                        color: #333; /* 确保文字可见 */
+                    }
+                    
+                    .level-v3 {
+                        background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
+                        border: 1px solid #c0c0c0;
+                        box-shadow: 
+                            0 3px 6px rgba(0, 0, 0, 0.1),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.8);
+                        color: #333; /* 确保文字可见 */
+                    }
+                    
+                    .level-v4 {
+                        background: linear-gradient(135deg, #a8a8a8, #d8d8d8);
+                        border: 1px solid #a0a0a0;
+                        box-shadow: 
+                            0 3px 6px rgba(0, 0, 0, 0.12),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.6);
+                        color: #333; /* 确保文字可见 */
+                    }
+                    
+                    .level-v5 {
+                        background: linear-gradient(135deg, #d4af37, #f9e076);
+                        border: 1px solid #c0a030;
+                        color: #ffffff;
+                        box-shadow: 
+                            0 3px 6px rgba(212, 175, 55, 0.3),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.6);
+                    }
+                    
+                    .level-v6 {
+                        background: linear-gradient(135deg, #b07922, #ffc261);
+                        color: #fff;
+                        text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+                        border: 1px solid #a06820;
+                        box-shadow: 
+                            0 3px 10px rgba(176, 121, 34, 0.4),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.4);
+                    }
+                    
+                    /* 左侧边框标识 - 与对应等级渐变色匹配 */
+                    .v1-row {
+                        border-left: 3px solid #f0f0f0; /* 使用V1渐变的起始色 */
+                    }
+                    
+                    .v2-row {
+                        border-left: 3px solid #e0e0e0; /* 使用V2渐变的起始色 */
+                    }
+                    
+                    .v3-row {
+                        border-left: 3px solid #d8d8d8; /* 使用V3渐变的起始色 */
+                    }
+                    
+                    .v4-row {
+                        border-left: 3px solid #b8b8b8; /* 使用V4渐变的起始色 */
+                    }
+                    
+                    .v5-row {
+                        border-left: 3px solid #f9e076; /* 使用V5渐变的起始色 */
+                    }
+                    
+                    .v6-row {
+                        border-left: 3px solid #ffc261; /* 使用V6渐变的起始色 */
+                    }
+                    
+                    /* 面额和门槛样式优化，与整体设计风格保持一致 */
+                    .amount {
+                        padding: 6px 10px;
+                        border-radius: 4px;
+                        background-color: #f8f8f8;
+                        display: inline-block;
+                        margin: 2px 0;
+                        min-width: 70px;
+                        font-weight: bold;
+                        color: #333;
+                        border: 1px solid #e8e8e8;
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+                    }
+                    
+                    .threshold {
+                        padding: 5px 8px;
+                        border-radius: 4px;
+                        background-color: #f8f8f8;
+                        color: #666;
+                        display: inline-block;
+                        margin: 2px 0;
+                        font-size: 0.95em;
+                        border: 1px solid #f0f0f0;
+                    }
+                </style>
                 
-                <p class="privilege-desc">会员每月可领取专属优惠券，会员等级越高，每月能领的越多!</p>
-                
-                <div class="table-container">
-    <style>
-        .privilege-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .privilege-table thead tr {
-            background-color: #333333;
-            color: white;
-        }
-        
-        .privilege-table th {
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        .privilege-table td {
-            padding: 10px 8px;
-            text-align: center;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        /* 等级样式 */
-        .level {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            line-height: 32px;
-            text-align: center;
-            border-radius: 50%;
-            color: rgb(6, 6, 6);
-            font-weight: bold;
-        }
-        
-        .level-v1 {
-            background: linear-gradient(135deg, #e0e0e0, #ffffff);
-            border: 1px solid #ddd;
-            box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.08),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8);
-            color: #333; /* 确保文字可见 */
-        }
-        
-        .level-v3 {
-            background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
-            border: 1px solid #c0c0c0;
-            box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.1),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8);
-            color: #333; /* 确保文字可见 */
-        }
-        
-        .level-v4 {
-            background: linear-gradient(135deg, #a8a8a8, #d8d8d8);
-            border: 1px solid #a0a0a0;
-            box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.12),
-                inset 0 1px 1px rgba(255, 255, 255, 0.6);
-            color: #333; /* 确保文字可见 */
-        }
-        
-   
-        
-        .level-v5 {
-            background: linear-gradient(135deg, #d4af37, #f9e076);
-            border: 1px solid #c0a030;
-            color: #ffffff;
-            box-shadow: 
-                0 3px 6px rgba(212, 175, 55, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.6);
-        }
-        
-        .level-v6 {
-            background: linear-gradient(135deg, #b07922, #ffc261);
-            color: #fff;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-            border: 1px solid #a06820;
-            box-shadow: 
-                0 3px 10px rgba(176, 121, 34, 0.4),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
-        }
-        
-        /* 左侧边框标识 - 与对应等级渐变色匹配 */
-        .v1-row {
-            border-left: 3px solid #f0f0f0; /* 使用V1渐变的起始色 */
-        }
-        
-        .v2-row {
-            border-left: 3px solid #e0e0e0; /* 使用V2渐变的起始色 */
-        }
-        
-        .v3-row {
-            border-left: 3px solid #d8d8d8; /* 使用V3渐变的起始色 */
-        }
-        
-        .v4-row {
-            border-left: 3px solid #b8b8b8; /* 使用V4渐变的起始色 */
-        }
-        
-        .v5-row {
-            border-left: 3px solid #f9e076; /* 使用V5渐变的起始色 */
-        }
-        
-        .v6-row {
-            border-left: 3px solid #ffc261; /* 使用V6渐变的起始色 */
-        }
-        
-        /* 面额和门槛样式优化，与整体设计风格保持一致 */
-        .amount {
-            padding: 6px 10px;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-            display: inline-block;
-            margin: 2px 0;
-            min-width: 70px;
-            font-weight: bold;
-            color: #333;
-            border: 1px solid #e8e8e8;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-        
-        .threshold {
-            padding: 5px 8px;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-            color: #666;
-            display: inline-block;
-            margin: 2px 0;
-            font-size: 0.95em;
-            border: 1px solid #f0f0f0;
-        }
-    </style>
-    
-    <table class="privilege-table">
-        <thead>
-            <tr>
-                <th>等级</th>
-                <th>面额</th>
-                <th>门槛</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="v2-row">
-                <td><span class="level level-v2">V1</span></td>
-                <td><span class="coupon small-coupon">5</span></td>
-                <td><span class="threshold">满98元</span></td>
-    
-            <tr class="v3-row">
-                <td rowspan="2"><span class="level level-v3">V2</span></td>
-                <td><span class="coupon small-coupon">5</span></td>
-                <td><span class="threshold">满98元</span></td>
-            </tr>
-            <tr class="v3-row">
-                <td><span class="coupon small-coupon">10</span></td>
-                <td><span class="threshold">满198元</span></td>
-            </tr>
-            <tr class="v4-row">
-                <td rowspan="3"><span class="level level-v4">V3</span></td>
-                <td><span class="coupon small-coupon">5</span></td>
-                <td><span class="threshold">满98元</span></td>
-            </tr>
-            <tr class="v4-row">
-                <td><span class="coupon small-coupon">10</span></td>
-                <td><span class="threshold">满198元</span></td>
-            </tr>
-            <tr class="v4-row">
-                <td><span class="coupon small-coupon">15</span></td>
-                <td><span class="threshold">满298元</span></td>
-            </tr>
-            <tr class="v5-row">
-                <td rowspan="4"><span class="level level-v5">V4</span></td>
-                <td><span class="coupon small-coupon">5</span></td>
-                <td><span class="threshold">满98元</span></td>
-            </tr>
-            <tr class="v5-row">
-                <td><span class="coupon small-coupon">10</span></td>
-                <td><span class="threshold">满198元</span></td>
-            </tr>
-            <tr class="v5-row">
-                <td><span class="coupon small-coupon">15</span></td>
-                <td><span class="threshold">满298元</span></td>
-            </tr>
-            <tr class="v5-row">
-                <td><span class="coupon small-coupon">20</span></td>
-                <td><span class="threshold">满398元</span></td>
-            </tr>
-            <tr class="v6-row">
-                <td rowspan="5"><span class="level level-v6">V5</span></td>
-                <td><span class="coupon small-coupon">5</span></td>
-                <td><span class="threshold">满98元</span></td>
-            </tr>
-            <tr class="v6-row">
-                <td><span class="coupon small-coupon">10</span></td>
-                <td><span class="threshold">满198元</span></td>
-            </tr>
-            <tr class="v6-row">
-                <td><span class="coupon small-coupon">15</span></td>
-                <td><span class="threshold">满298元</span></td>
-            </tr>
-            <tr class="v6-row">
-                <td><span class="coupon small-coupon">20</span></td>
-                <td><span class="threshold">满398元</span></td>
-            </tr>
-            <tr class="v6-row">
-                <td><span class="coupon small-coupon">25</span></td>
-                <td><span class="threshold">满498元</span></td>
-            </tr>
-        </tbody>
-        
-    </table>
-</div>
-
-                
-                
-                
-                <div class="tip-box">
-                    <div class="tip-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                    </div>
-                    <div class="tip-text">小提示: 优惠券每月18号在会员页面领取，记得按时领取使用哦!</div>
-                </div>
+                <table class="privilege-table">
+                    <thead>
+                        <tr>
+                            <th>等级</th>
+                            <th>面额</th>
+                            <th>门槛</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="v2-row">
+                            <td><span class="level level-v3">V2</span></td>
+                            <td><span class="coupon small-coupon">5</span></td>
+                            <td><span class="threshold">满98元</span></td>
+                        </tr>
+                        <tr class="v3-row">
+                            <td rowspan="2"><span class="level level-v4">V3</span></td>
+                            <td><span class="coupon small-coupon">5</span></td>
+                            <td><span class="threshold">满98元</span></td>
+                        </tr>
+                        <tr class="v3-row">
+                            <td><span class="coupon small-coupon">10</span></td>
+                            <td><span class="threshold">满198元</span></td>
+                        </tr>
+                        <tr class="v4-row">
+                            <td rowspan="2"><span class="level level-v5">V4</span></td>
+                            <td><span class="coupon small-coupon">7</span></td>
+                            <td><span class="threshold">满98元</span></td>
+                        </tr>
+                        <tr class="v4-row">
+                            <td><span class="coupon small-coupon">10</span></td>
+                            <td><span class="threshold">满198元</span></td>
+                        </tr>
+                        <tr class="v5-row">
+                            <td rowspan="2"><span class="level level-v6">V5</span></td>
+                            <td><span class="coupon small-coupon">7</span></td>
+                            <td><span class="threshold">满98元</span></td>
+                        </tr>
+                        <tr class="v5-row">
+                            <td><span class="coupon small-coupon">15</span></td>
+                            <td><span class="threshold">满198元</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <!-- 特权二：积分兑0门槛券 -->
-            <div class="privilege-card">
-                <div class="privilege-header">
-                    <div class="privilege-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                    </div>
-                    <h3 class="privilege-title">会员特权二：积分兑0门槛券</h3>
+            
+            <div class="tip-box">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 </div>
-                
-                <p class="privilege-desc">消费累积的积分可以兑换，大额0门槛优惠券!</p>
-                
-                <div class="table-container">
-                    <table class="privilege-table points-table">
-                        <thead>
-                            <tr>
-                                <th>面额</th>
-                                <th>所需积分</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="coupon small-coupon">10</span></td>
-                                <td><span class="points">700积分</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="coupon small-coupon">20</span></td>
-                                <td><span class="points">1400积分</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="coupon small-coupon">30</span></td>
-                                <td><span class="points">2100积分</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="coupon small-coupon">50</span></td>
-                                <td><span class="points">3500积分</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="coupon small-coupon">80</span></td>
-                                <td><span class="points">5500积分</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="coupon small-coupon highlight">¥100</span></td>
-                                <td><span class="points highlight-points">6900积分</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="tip-box">
-                    <div class="tip-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                    </div>
-                    <div class="tip-text">小提示: 积分兑换的优惠券无消费门槛，随时可兑，随时可用，可能达成0元下单!</div>
-                </div>
+                <div class="tip-text">小提示: 优惠券每月18号在会员页面领取，记得按时领取使用哦!</div>
             </div>
+        </div>
+
+        <!-- 特权二：升级一次性大额券 -->
+        <div class="privilege-card">
+            <div class="privilege-header">
+                <div class="privilege-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+                <h3 class="privilege-title">会员特权二：一次性大额券</h3>
+            </div>
+            
+            <p class="privilege-desc">每次会员等级升级时，可获得一次性超优惠大额优惠券!</p>
+            
+            <div class="table-container">
+                <style>
+                    .upgrade-label {
+                        display: inline-block;
+                        padding: 5px 8px;
+                        background: linear-gradient(135deg, #f3d259, #e6b800);
+                        color: #111;
+                        border-radius: 15px;
+                        font-weight: bold;
+                        font-size: 0.9em;
+                        box-shadow: 0 2px 4px rgba(230, 184, 0, 0.3);
+                    }
+                    
+                    .upgrade-row {
+                        border-left: 3px solid #f3d259;
+                    }
+                </style>
+                
+                <table class="privilege-table">
+                    <thead>
+                        <tr>
+                            <th>会员升级</th>
+                            <th>优惠券1</th>
+                            <th>优惠券2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="upgrade-row">
+                            <td><span class="upgrade-label">升级到V2</span></td>
+                            <td><span class="coupon small-coupon">15</span><br><span class="threshold">满198元</span></td>
+                            <td><span class="coupon small-coupon">20</span><br><span class="threshold">满298元</span></td>
+                        </tr>
+                        <tr class="upgrade-row">
+                            <td><span class="upgrade-label">升级到V3</span></td>
+                            <td><span class="coupon small-coupon">25</span><br><span class="threshold">满298元</span></td>
+                            <td><span class="coupon small-coupon">30</span><br><span class="threshold">满398元</span></td>
+                        </tr>
+                        <tr class="upgrade-row">
+                            <td><span class="upgrade-label">升级到V4</span></td>
+                            <td><span class="coupon small-coupon">30</span><br><span class="threshold">满398元</span></td>
+                            <td><span class="coupon small-coupon">40</span><br><span class="threshold">满498元</span></td>
+                        </tr>
+                        <tr class="upgrade-row">
+                            <td><span class="upgrade-label">升级到V5</span></td>
+                            <td><span class="coupon small-coupon">40</span><br><span class="threshold">满398元</span></td>
+                            <td><span class="coupon small-coupon highlight">50</span><br><span class="threshold">满498元</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <div class="tip-text">小提示: 会员等级升级时自动发放，大额优惠券使用效果更佳!</div>
+            </div>
+        </div>
+
+        <!-- 特权三：积分兑0门槛券（原来的特权二） -->
+        <div class="privilege-card">
+            <div class="privilege-header">
+                <div class="privilege-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                </div>
+                <h3 class="privilege-title">会员特权三：积分兑0门槛券</h3> <!-- 修改为特权三 -->
+            </div>
+            
+            <p class="privilege-desc">消费累积的积分可以兑换，大额0门槛优惠券!</p>
+            
+            <div class="table-container">
+                <table class="privilege-table points-table">
+                    <thead>
+                        <tr>
+                            <th>面额</th>
+                            <th>所需积分</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="coupon small-coupon">10</span></td>
+                            <td><span class="points">700积分</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="coupon small-coupon">20</span></td>
+                            <td><span class="points">1400积分</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="coupon small-coupon">30</span></td>
+                            <td><span class="points">2100积分</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="coupon small-coupon">50</span></td>
+                            <td><span class="points">3500积分</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="coupon small-coupon">80</span></td>
+                            <td><span class="points">5500积分</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="coupon small-coupon highlight">¥100</span></td>
+                            <td><span class="points highlight-points">6900积分</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                </div>
+                <div class="tip-text">小提示: 积分兑换的优惠券无消费门槛，随时可兑，随时可用，可能达成0元下单!</div>
+            </div>
+        </div>
+ 
 
             <!-- 会员升级与积分倍率 -->
             <div class="privilege-card">
@@ -1388,6 +1425,7 @@
                                 <td><span class="multiplier highlight-multiplier">5倍</span></td>
                             </tr>
                         </tbody>
+                        
                     </table>
                 </div>
             </div>
@@ -1434,8 +1472,7 @@
             </div>
         
  
-            </div>
-        </div>
+     
     </div>
 </body>
 </html>
