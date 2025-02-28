@@ -391,16 +391,10 @@
         }
         
         /* 优化每个等级的渐变色和效果 */
-        .level-v1 {
-            background: linear-gradient(135deg, #e0e0e0, #ffffff);
-            border: 1px solid #ddd;
-            box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.08),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8);
-        }
+
         
         .level-v2 {
-            background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
+            background: linear-gradient(135deg, #c8c8c8, #e8e8e8);  
             border: 1px solid #c0c0c0;
             box-shadow: 
                 0 3px 6px rgba(0, 0, 0, 0.1),
@@ -417,7 +411,7 @@
         
         .level-v4 {
             background: linear-gradient(135deg, #787878, #b8b8b8);
-            color: #fff;
+            color: #ffffff;
             text-shadow: 0 1px 1px rgba(0,0,0,0.4);
             border: 1px solid #707070;
             box-shadow: 
@@ -1045,7 +1039,7 @@
             <div class="vip-badge">VIP</div>
         </div>
         
-        <h1 class="main-title">解锁<span class="highlight">6大会员等级</span>专属特权</h1>
+        <h1 class="main-title">解锁<span class="highlight">5大会员等级</span>专属特权</h1>
         <p class="sub-title">会员等级越高 · 优惠越多 · 权益更丰富</p>
   
  
@@ -1097,7 +1091,7 @@
             line-height: 32px;
             text-align: center;
             border-radius: 50%;
-            color: white;
+            color: rgb(6, 6, 6);
             font-weight: bold;
         }
         
@@ -1110,7 +1104,7 @@
             color: #333; /* 确保文字可见 */
         }
         
-        .level-v2 {
+        .level-v3 {
             background: linear-gradient(135deg, #c8c8c8, #e8e8e8);
             border: 1px solid #c0c0c0;
             box-shadow: 
@@ -1119,7 +1113,7 @@
             color: #333; /* 确保文字可见 */
         }
         
-        .level-v3 {
+        .level-v4 {
             background: linear-gradient(135deg, #a8a8a8, #d8d8d8);
             border: 1px solid #a0a0a0;
             box-shadow: 
@@ -1128,15 +1122,7 @@
             color: #333; /* 确保文字可见 */
         }
         
-        .level-v4 {
-            background: linear-gradient(135deg, #787878, #b8b8b8);
-            color: #fff;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.4);
-            border: 1px solid #707070;
-            box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.15),
-                inset 0 1px 1px rgba(255, 255, 255, 0.4);
-        }
+   
         
         .level-v5 {
             background: linear-gradient(135deg, #d4af37, #f9e076);
@@ -1217,18 +1203,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="v1-row">
-                <td><span class="level level-v1">V1</span></td>
-                <td><span class="coupon small-coupon">5</span></td>
-                <td><span class="threshold">无门槛</span></td>
-            </tr>
             <tr class="v2-row">
-                <td><span class="level level-v2">V2</span></td>
+                <td><span class="level level-v2">V1</span></td>
                 <td><span class="coupon small-coupon">5</span></td>
                 <td><span class="threshold">满98元</span></td>
-            </tr>
+    
             <tr class="v3-row">
-                <td rowspan="2"><span class="level level-v3">V3</span></td>
+                <td rowspan="2"><span class="level level-v3">V2</span></td>
                 <td><span class="coupon small-coupon">5</span></td>
                 <td><span class="threshold">满98元</span></td>
             </tr>
@@ -1237,7 +1218,7 @@
                 <td><span class="threshold">满198元</span></td>
             </tr>
             <tr class="v4-row">
-                <td rowspan="3"><span class="level level-v4">V4</span></td>
+                <td rowspan="3"><span class="level level-v4">V3</span></td>
                 <td><span class="coupon small-coupon">5</span></td>
                 <td><span class="threshold">满98元</span></td>
             </tr>
@@ -1250,7 +1231,7 @@
                 <td><span class="threshold">满298元</span></td>
             </tr>
             <tr class="v5-row">
-                <td rowspan="4"><span class="level level-v5">V5</span></td>
+                <td rowspan="4"><span class="level level-v5">V4</span></td>
                 <td><span class="coupon small-coupon">5</span></td>
                 <td><span class="threshold">满98元</span></td>
             </tr>
@@ -1267,7 +1248,7 @@
                 <td><span class="threshold">满398元</span></td>
             </tr>
             <tr class="v6-row">
-                <td rowspan="5"><span class="level level-v6">V6</span></td>
+                <td rowspan="5"><span class="level level-v6">V5</span></td>
                 <td><span class="coupon small-coupon">5</span></td>
                 <td><span class="threshold">满98元</span></td>
             </tr>
@@ -1299,7 +1280,7 @@
                     <div class="tip-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                     </div>
-                    <div class="tip-text">小提示: 优惠券每月18号在会员页面领取，一种面额每月限领一次!</div>
+                    <div class="tip-text">小提示: 优惠券每月18号在会员页面领取，记得按时领取使用哦!</div>
                 </div>
             </div>
 
@@ -1368,7 +1349,7 @@
                     <h3 class="privilege-title">会员升级与积分倍率</h3>
                 </div>
                 
-                <p class="privilege-desc">不同会员等级，积分获取速度大不同!</p>
+                <p class="privilege-desc">会员等级越高，积分获取速度越快!</p>
                 
                 <div class="table-container">
                     <table class="privilege-table levels-table">
@@ -1380,35 +1361,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                        
                             <tr>
-                                <td><span class="level level-v1 table-level">V1</span></td>
-                                <td>注册即享</td>
+                                <td><span class="level level-v2 table-level">V1</span></td>
+                                <td>入会即享</td>
                                 <td><span class="multiplier">1倍</span></td>
                             </tr>
                             <tr>
-                                <td><span class="level level-v2 table-level">V2</span></td>
+                                <td><span class="level level-v3 table-level">V2</span></td>
                                 <td>累计消费满150</td>
                                 <td><span class="multiplier">2倍</span></td>
                             </tr>
                             <tr>
-                                <td><span class="level level-v3 table-level">V3</span></td>
+                                <td><span class="level level-v4 table-level">V3</span></td>
                                 <td>累计消费满600</td>
                                 <td><span class="multiplier">3倍</span></td>
                             </tr>
                             <tr>
-                                <td><span class="level level-v4 table-level">V4</span></td>
+                                <td><span class="level level-v5 table-level">V4</span></td>
                                 <td>累计消费满3000</td>
                                 <td><span class="multiplier">4倍</span></td>
                             </tr>
                             <tr>
-                                <td><span class="level level-v5 table-level">V5</span></td>
+                                <td><span class="level level-v6 table-level">V5</span></td>
                                 <td>累计消费满5000</td>
-                                <td><span class="multiplier">5倍</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="level level-v6 table-level">V6</span></td>
-                                <td>累计消费满8000</td>
-                                <td><span class="multiplier highlight-multiplier">6倍</span></td>
+                                <td><span class="multiplier highlight-multiplier">5倍</span></td>
                             </tr>
                         </tbody>
                     </table>
