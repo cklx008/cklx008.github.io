@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-T">
+    <meta charset="UTF-8"> <!-- Corrected charset to UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>京庭净水器产品卖点</title>
+    <title>京庭净水器产品亮点 (高级版 - 内容更新)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
 
@@ -43,83 +43,87 @@
             border-top: 4px solid transparent; /* 顶部彩色边框 */
         }
 
-        /* 为不同类型的卡片设置不同的顶部边框颜色 */
         .card.highlight-feature { border-top-color: #007BFF; } /* 核心亮点 - 经典蓝 */
-        .card.filtration-experience { border-top-color: #17A2B8; } /* 过滤体验 - 信息蓝/青 */
+        .card.less-competitive { border-top-color: #17A2B8; } /* 没啥竞争力 - 信息蓝/青 */
         .card.specs { border-top-color: #6c757d; } /* 产品规格 - 中性灰 */
 
 
         .card h2 {
-            font-size: 1.45em; /* 略微增大 */
+            font-size: 1.45em; 
             margin-top: 0;
             margin-bottom: 15px;
             font-weight: 500;
-            color: #212529; /* 深灰色标题 */
+            color: #212529; 
         }
-        /* 可以为特定模块的H2再加一点颜色强调 */
         .card.highlight-feature h2 { color: #0056b3; }
-        .card.filtration-experience h2 { color: #00695c; }
+        .card.less-competitive h2 { color: #00695c; }
 
 
         .differentiation-score {
-            font-weight: 500; /* 中等粗细 */
+            font-weight: 500; 
             font-size: 1em;
             margin-bottom: 20px;
             padding: 6px 10px;
             border-radius: 5px;
-            display: inline-block;
-            background-color: #e9ecef; /* 浅灰色背景 */
-            color: #495057; /* 深灰色文字 */
+            display: block; /* Make it block to contain the floated star and text nicely */
+            background-color: #e9ecef; 
+            color: #495057; 
+            overflow: hidden; /* Clearfix for floated star if needed, though block might be enough */
         }
-        .differentiation-score .stars {
+        .differentiation-score .star-icon {
+            margin-right: 5px;
+            font-size: 1.1em;
+        }
+        .differentiation-score .stars-text { /* For the star characters ★★★★★ */
             letter-spacing: 1px;
-            font-weight: 700; /* 星星加粗 */
+            font-weight: 700; 
+            margin-right: 8px;
         }
 
-        /* 星级颜色调整 - 更精致的色彩 */
-        .stars-5 .stars { color: #FF8F00; } /* 琥珀色/深橙色 - 高级感 */
-        .stars-4 .stars { color: #FFB300; } /* 亮琥珀色 */
-        .stars-3 .stars { color: #007BFF; } /* 经典蓝 */
-        .stars-2 .stars { color: #17A2B8; } /* 信息蓝/青 */
-        .stars-1 .stars { color: #6c757d; } /* 中性灰 */
-        .differentiation-score .score-text {
+        .stars-5 .stars-text { color: #FF8F00; } 
+        .stars-4 .stars-text { color: #FFB300; } 
+        .stars-3 .stars-text { color: #007BFF; } 
+        .stars-2 .stars-text { color: #17A2B8; } 
+        .stars-1 .stars-text { color: #6c757d; } 
+        .differentiation-score .score-description {
             font-size: 0.9em;
             color: #495057;
         }
 
 
-        .card p, .card ul {
+        .card p, .card ul, .card ol {
             font-size: 0.95em;
             line-height: 1.75;
-            color: #495057; /* 更柔和的文本颜色 */
+            color: #495057; 
         }
         .card strong {
-            color: #000; /* 纯黑强调，对比更清晰 */
+            color: #000; 
             font-weight: 500;
         }
-        .card ul {
-            padding-left: 20px;
+        .card ul, .card ol {
+            padding-left: 20px; /* Indent for lists */
             margin-top: 8px;
         }
-        .card ul li {
+        .card ul li, .card ol li {
             margin-bottom: 7px;
         }
-        .card ul ul {
+        .card ul ul { /* Nested lists */
             margin-top: 5px;
             margin-bottom: 8px;
+            padding-left: 18px; /* Further indent nested lists */
         }
         .patent-note {
-            font-style: normal; /* 去掉斜体，更正式 */
+            font-style: normal; 
             font-size: 0.85em;
             color: #6c757d;
             display: block;
             margin-top: 10px;
-            padding-top: 5px;
-            border-top: 1px dashed #dee2e6; /* 分隔线 */
+            padding-top: 8px;
+            border-top: 1px dashed #dee2e6; 
         }
         .section-title {
             font-size: 1.7em;
-            color: #fff; /* 白色文字 */
+            color: #fff; 
             text-align: center;
             margin-top: 40px;
             margin-bottom: 25px;
@@ -129,175 +133,209 @@
             letter-spacing: 0.5px;
         }
 
-        /* 章节标题背景色 - 采用更沉稳的颜色 */
-        .section-core-highlights { background-image: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); } /* 科技蓝渐变 */
-        .section-filter-experience { background-image: linear-gradient(to right, #007991, #78ffd6); } /* 青蓝渐变 */
-        .section-specs { background-color: #495057; } /* 深灰色 */
+        .section-core-highlights { background-image: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); } 
+        .section-less-competitive { background-image: linear-gradient(to right, #007991, #78ffd6); } 
+        .section-specs { background-color: #495057; } 
 
 
-        .filter-level {
-            margin-left: 0; /* 调整对齐 */
+        .filter-level { /* Used for the 4-level filter structure */
+            margin-left: 0; 
             padding-left: 0;
+            list-style-type: decimal; /* Use numbers for ordered list */
+            padding-left: 25px; /* Space for numbers */
         }
-        .filter-level li {
-            list-style-type: none; /* 去掉默认点 */
-            padding-left: 25px; /* 自定义图标空间 */
-            position: relative;
-            margin-bottom: 10px;
-        }
-        .filter-level li::before { /* 自定义列表标记 */
-            content: '💧'; /* 水滴 emoji 或其他图标 */
-            position: absolute;
-            left: 0;
-            top: 2px;
+        .filter-level li::marker {
+            font-weight: bold;
             color: #007BFF;
-            font-size: 1.1em;
         }
-        .filter-level strong {
-            display: block;
-            margin-bottom: 3px;
-            color: #343a40;
-        }
-        .tech-detail { /* 用于技术解读等小标题 */
+
+        .tech-detail-label { 
             font-weight: 500;
-            color: #0056b3; /* 蓝色强调 */
+            color: #0056b3; 
             margin-bottom: 5px;
             display: block;
+        }
+        .card .tech-detail-label + p,
+        .card .tech-detail-label + ul,
+        .card .tech-detail-label + ol {
+            margin-top: 0; /* Reduce space after label */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>京庭净水器 产品卖点策划</h1>
+        <h1>京庭净水器（AR304B-75G） 产品策划</h1>
 
-        <h2 class="section-title section-core-highlights">🌟 核心产品卖点 🌟</h2>
+        <h2 class="section-title section-core-highlights">🌟 产品核心卖点 🌟</h2>
         <div class="card-grid">
             <div class="card highlight-feature">
-                <h2>1. AI动态活水：拒绝陈水</h2>
-                <p class="differentiation-score stars-5">✨ <span class="stars">★★★★★</span> <span class="score-text">(行业罕见的主动“零陈水”循环)</span></p>
-                <span class="tech-detail">核心卖点：</span>
+                <h2>1. AI动态活水：拒绝陈水，时刻鲜活</h2>
+                <div class="differentiation-score stars-5">
+                    <span class="star-icon">✨</span><span class="stars-text">★★★★★</span>
+                    <span class="score-description">(行业罕见的主动“零陈水”循环)</span>
+                </div>
+                <span class="tech-detail-label">核心卖点：</span>
                 <p>不间断循环，拒绝超过3小时的陈水。</p>
-                <span class="tech-detail">技术解读：</span>
-                <ul>
-                    <li>独创动态水循环系统，AI智能判断并主动换水。</li>
-                    <li>自动排出净水箱底部陈水，注入新鲜纯水。</li>
-                    <li>确保水箱内水质时刻流动新鲜，告别沉积水垢与异味。</li>
-                </ul>
+                <span class="tech-detail-label">详细文案：</span>
+                <p>独创动态水循环系统——AI会根据你的使用习惯，智能排出净水箱底部陈水，再把新鲜纯水补满，保证水一直是流动且新鲜的，彻底告别沉积水垢与异味。</p>
                 <p class="patent-note"><strong>专利号：</strong> CN221720568U</p>
-                <span class="tech-detail">营销思路：</span>
+                <span class="tech-detail-label">营销设计思路：</span>
                 <ul>
-                    <li>“深夜3h未取水 → 自动换水”动画演示。</li>
-                    <li>对比图强化痛点，打造爆点。</li>
+                    <li>制作“深夜3h未取水 → 自动换水”的动画演示。</li>
+                    <li>通过对比图（他牌静置12h后TDS/细菌飙升 vs 京庭航空级动态循环后TDS基本无变化），强化痛点感知，打造爆点内容。</li>
                 </ul>
             </div>
 
             <div class="card highlight-feature">
-                <h2>2. 水质实时同屏：安心看得见</h2>
-                <p class="differentiation-score stars-3">✨ <span class="stars">★★★☆☆</span> <span class="score-text">(市面双TDS显示功能占比约一成)</span></p>
-                <span class="tech-detail">功能解读：</span>
+                <h2>2. 过滤前→过滤后，效果看得见</h2>
+                <div class="differentiation-score stars-3">
+                    <span class="star-icon">✨</span><span class="stars-text">★★★☆☆</span>
+                    <span class="score-description">(竞品市面双TDS显示功能仅占比约一成)</span>
+                </div>
+                <span class="tech-detail-label">详细文案：</span>
                 <ul>
-                    <li>左侧“原水TDS”实时刷新，右侧“纯水TDS”同步显示。</li>
-                    <li>净化前后水质变化一目了然，饮用更安心。</li>
+                    <li>屏幕左侧实时刷新“原水TDS值”。</li>
+                    <li>屏幕右侧同步显示“纯水TDS值”。</li>
+                    <li>净化前后的水质变化一目了然，让您心中有数，饮用更安心。</li>
                 </ul>
             </div>
 
             <div class="card highlight-feature">
-                <h2>3. AI智慧节水：多喝50%</h2>
-                <p class="differentiation-score stars-4">✨ <span class="stars">★★★★☆</span> <span class="score-text">(动态废水比稀缺，73%净水率高段位)</span></p>
-                <p><strong>能效备注：</strong> 此款为1级水效 (对比老款3级水效显著提升)</p>
-                <span class="tech-detail">技术解读：</span>
+                <h2>3. AI智慧节水：一箱水多喝50%</h2>
+                <div class="differentiation-score stars-4">
+                    <span class="star-icon">✨</span><span class="stars-text">★★★★☆</span>
+                    <span class="score-description">(动态废水比技术稀缺，73%净水率属高段位)</span>
+                </div>
+                <p><strong>能效备注：</strong> 此款为1级水效 (对比老款3级水效有显著提升)</p>
+                <span class="tech-detail-label">详细文案：</span>
                 <ul>
-                    <li>独创AI动态调节废水排放，高精度双TDS实时监测。</li>
-                    <li>水质好少废水，水质差精准排废。</li>
-                    <li>告别固定排废，延长滤芯寿命，减少换水。</li>
+                    <li>独创AI动态调节废水排放技术。</li>
+                    <li>借助高精度双TDS传感器，实时监测入水及出水水质。</li>
+                    <li>根据水质状况动态调整最佳废水比：
+                        <ul>
+                            <li><strong>好水质时：</strong> 产生更少废水。</li>
+                            <li><strong>差水质时：</strong> 精准排放废水，保证水质。</li>
+                        </ul>
+                    </li>
+                    <li>告别传统净水器固定排废模式，减少换水频次，还提高滤芯寿命，既节水又省芯。</li>
                 </ul>
                 <p class="patent-note"><strong>专利号：</strong> CN208182644U</p>
             </div>
 
             <div class="card highlight-feature">
-                <h2>4. 大容量高水效：畅饮无忧</h2>
-                <p class="differentiation-score stars-3">✨ <span class="stars">★★★☆☆</span> <span class="score-text">(大水箱与高水效组合更有说服力)</span></p>
+                <h2>4. 同样一箱水，多泡3两杯茶</h2>
+                <div class="differentiation-score stars-3">
+                    <span class="star-icon">✨</span><span class="stars-text">★★★☆☆</span>
+                    <span class="score-description">(竞品大水箱常见，但与高水效组合更具说服力)</span>
+                </div>
                 <p><strong>对比备注：</strong> (对比老款3级水效产品)</p>
-                <span class="tech-detail">优势解读：</span>
+                <span class="tech-detail-label">优势解读：</span>
                 <ul>
                     <li>6.2L超大总容量（5L原水箱 + 1.2L纯水箱）。</li>
-                    <li>AI智慧节水加持，提升单箱水可用量。</li>
+                    <li>搭配AI智慧节水技术，显著提升单箱水的可用量，满足长时间饮用需求，减少频繁加水。</li>
                 </ul>
             </div>
 
             <div class="card highlight-feature">
-                <h2>5. 双重UV守护：全程洁净</h2>
-                <p class="differentiation-score stars-4">✨ <span class="stars">★★★★☆</span> <span class="score-text">(多数仅单UV，双区覆盖更全面)</span></p>
-                <span class="tech-detail">技术解读：</span>
+                <h2>5. 双重紫外线守护，从源头到杯口全程洁净</h2>
+                <div class="differentiation-score stars-4">
+                    <span class="star-icon">✨</span><span class="stars-text">★★★★☆</span>
+                    <span class="score-description">(竞品多数机型仅单UV杀菌，双区覆盖更全面)</span>
+                </div>
+                <span class="tech-detail-label">技术解读：</span>
                 <ul>
-                    <li>京庭净™双区独立UV紫外线杀菌系统：
+                    <li>京庭净™双区独立UV紫外线杀菌系统方案：
                         <ul>
-                            <li>存储水持续消毒。</li>
-                            <li>出水关键路径二次把关。</li>
+                            <li><strong>存储水消毒：</strong> 对已净化的存储水进行持续消毒。</li>
+                            <li><strong>出水路径消毒：</strong> 在出水关键路径上进行二次把关。</li>
                         </ul>
                     </li>
-                    <li>从“净化完成”到“即饮入口”全程无菌。</li>
+                    <li>实现从“净化完成”到“即饮入口”的全程无菌，每一杯都安心。</li>
                 </ul>
                 <p class="patent-note"><strong>专利号：</strong> CN107285542B</p>
-                <span class="tech-detail">营销思路：</span>
+                <span class="tech-detail-label">营销设计思路：</span>
                 <ul>
-                    <li>对比单UV杀菌盲区，突出航空级除菌标准。</li>
+                    <li>与市面上单UV产品产生的杀菌盲区进行对比。</li>
+                    <li>突出“航空级除菌标准”，强化“航空工业”的背书。</li>
                 </ul>
             </div>
 
             <div class="card highlight-feature">
-                <h2>6. AI滤芯预测：精准换芯</h2>
-                <p class="differentiation-score stars-3">✨ <span class="stars">★★★☆☆</span> <span class="score-text">(算法预测优于简单计时)</span></p>
-                <span class="tech-detail">技术解读：</span>
+                <h2>6. AI滤芯寿命预测：精准换芯，拒绝浪费</h2>
+                <div class="differentiation-score stars-3">
+                    <span class="star-icon">✨</span><span class="stars-text">★★★☆☆</span>
+                    <span class="score-description">(算法预测优于竞品简单计时提醒)</span>
+                </div>
+                <span class="tech-detail-label">技术解读：</span>
                 <ul>
-                    <li>独创AI滤芯管理，三维数据精准预测寿命。</li>
-                    <li>避免“过度更换”与“忘记更换”。</li>
+                    <li>独创AI滤芯管理系统。</li>
+                    <li>综合分析用户用水习惯、实际水质，并结合TDS变化曲线、累计出水量、使用时间这三维数据。</li>
+                    <li>精准预测四级滤芯的剩余寿命，有效避免“过度更换”造成的浪费与“忘记更换”带来的健康风险。</li>
                 </ul>
-                <p class="patent-note"><strong>专利号：</strong> CN107285542B</p>
+                <p class="patent-note"><strong>专利号：</strong> CN107285542B <em>(备注：与上一项专利号相同，请确认是否正确)</em></p>
             </div>
         </div>
 
-        <h2 class="section-title section-filter-experience">💧 次要卖点，一笔带过 💧</h2>
+        <h2 class="section-title section-less-competitive">没啥竞争力的点，一笔带过</h2>
         <div class="card-grid">
-            <div class="card filtration-experience">
-                <h2>1. 航空级精滤：纯净甘泉</h2>
-                <p class="differentiation-score stars-2">✨ <span class="stars">★★☆☆☆</span> <span class="score-text">(过滤精度达标，层数/矿化亮点不足)</span></p>
-                <p><strong>营销策略：</strong> (不把“4级”单独列为核心)</p>
-                <span class="tech-detail">四级精滤结构：</span>
-                <ul class="filter-level">
-                    <li><strong>水箱PP棉初滤：</strong>拦截大颗粒杂质。</li>
-                    <li><strong>CTO前置活性炭：</strong>吸附余氯、异味。</li>
-                    <li><strong>RO反渗透核心滤芯 (0.0001μm)：</strong>强力去除重金属、细菌等。(可提及RO膜品牌)</li>
-                    <li><strong>CTO后置活性炭：</strong>改善口感，出水甘甜。</li>
-                </ul>
+            <div class="card less-competitive">
+                <h2>1. 航空级精滤系统：一根滤芯，一杯甘泉</h2>
+                <div class="differentiation-score stars-2">
+                    <span class="star-icon">✨</span><span class="stars-text">★★☆☆☆</span>
+                    <span class="score-description">(过滤精度达标，但在与竞品相比，滤芯层数或矿物质添加方面无突出亮点)</span>
+                </div>
+                <span class="tech-detail-label">营销策略：</span>
+                <p>(不把“4级”单独列为核心，避免与竞品“6-7级”滤芯进行单纯数量对比)</p>
+                <span class="tech-detail-label">四级精滤结构：</span>
+                <ol class="filter-level">
+                    <li><strong>水箱PP棉初滤 (水箱内置，可清洗/更换型)：</strong> 初步拦截泥沙、铁锈等大颗粒杂质，保护后续滤芯。</li>
+                    <li><strong>CTO前置活性炭 (建议6-12个月更换)：</strong> 高效吸附余氯、异色异味及部分有机物。</li>
+                    <li><strong>RO反渗透核心滤芯 (建议12-24个月更换)：</strong> 0.0001微米孔径，强力去除重金属、细菌、病毒、水垢等有害物质，是纯净之源。(可提及RO膜品牌，如采用知名供应商膜片)</li>
+                    <li><strong>CTO后置活性炭滤芯 (建议6-12个月更换)：</strong> 进一步改善口感，让出水更甘甜清冽。</li>
+                </ol>
             </div>
 
-            <div class="card filtration-experience">
-                <h2>2. 多档调温即热：3秒即享</h2>
-                <p class="differentiation-score stars-1">✨ <span class="stars">★☆☆☆☆</span> <span class="score-text">(行业基本标配)</span></p>
-                <span class="tech-detail">功能描述：</span>
+            <div class="card less-competitive">
+                <h2>2. 多档调温与即热：3秒即热，多温可选</h2>
+                <div class="differentiation-score stars-1">
+                    <span class="star-icon">✨</span><span class="stars-text">★☆☆☆☆</span>
+                    <span class="score-description">(行业基本标配功能，无优势)</span>
+                </div>
+                <span class="tech-detail-label">功能描述：</span>
                 <ul>
                     <li>无需等待，3秒即享鲜活热水。</li>
-                    <li>四档水温一键即达：常温、45℃(冲奶)、85℃(茗茶)、100℃(泡面)。</li>
+                    <li>四档水温一键即达，满足全家多样饮水需求：
+                        <ul>
+                            <li><strong>常温水</strong></li>
+                            <li><strong>45℃暖爱</strong> (适合冲奶、蜂蜜)</li>
+                            <li><strong>85℃醇香</strong> (适合咖啡、茗茶)</li>
+                            <li><strong>100℃畅快</strong> (适合泡面、器具消毒)</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
-            <div class="card filtration-experience">
-                <h2>3. 便捷出水：定量解放双手</h2>
-                <p class="differentiation-score stars-1">✨ <span class="stars">★☆☆☆☆</span> <span class="score-text">(行业基本标配)</span></p>
-                <span class="tech-detail">功能描述：</span>
+            <div class="card less-competitive">
+                <h2>3. 便捷出水设置：定量取水，解放双手</h2>
+                <div class="differentiation-score stars-1">
+                    <span class="star-icon">✨</span><span class="stars-text">★☆☆☆☆</span>
+                    <span class="score-description">(行业基本标配功能，无优势)</span>
+                </div>
+                <span class="tech-detail-label">功能描述：</span>
                 <ul>
-                    <li>150ml小杯，250ml大杯，连续出水模式。</li>
+                    <li><strong>150ml</strong> 小杯怡情</li>
+                    <li><strong>250ml</strong> 大杯畅饮</li>
+                    <li>更有<strong>连续出水模式</strong>，解放双手，用水更从容。</li>
                 </ul>
             </div>
         </div>
 
-        <h2 class="section-title section-specs">📐 产品规格参数 📐</h2>
+        <h2 class="section-title section-specs">📐 产品规格 📐</h2>
         <div class="card-grid">
             <div class="card specs">
                 <h2>规格详情</h2>
                 <p><strong>净重：</strong> 8.9kg</p>
-                <p><strong>产品尺寸：</strong> L461 × W236 × H411 mm</p>
+                <p><strong>产品尺寸：</strong> 长461mm × 宽236mm × 高411mm</p>
             </div>
         </div>
     </div>
